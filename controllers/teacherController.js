@@ -1,7 +1,7 @@
 const express = require('express');
 var router = express.Router();
 
-var {Teacher} = require('../modules/teacher') ;
+var {Teacher} = require('../models/teacher') ;
 
 
 router.get('/', (req, res) => {
