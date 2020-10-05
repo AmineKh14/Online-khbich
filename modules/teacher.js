@@ -6,3 +6,5 @@ var Teacher = mongoose.model('Teacher',{
     course: {type: String}
 
 });
+
+module.exports = teacher ;
