@@ -11,3 +11,15 @@ router.get('/', (req, res) => {
     });
 });
 
+
+router.post('/', (req, res) => {
+    var teacher = new Teacher({
+        fullname: req.body.fullname,
+        module: req.body.module,
+        course: req.body.course,
+    });
+    teacher.save((err, doc) => {
+        if (!err) { res.send(doc); }
+        else { console.log('Error in Teacher Save :' + JSON.stringify(err, undefined, 2)); }
+    });
+});
