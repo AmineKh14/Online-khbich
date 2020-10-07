@@ -14,12 +14,12 @@ router.get('/', (req, res) => {
 
 
 router.post('/', (req, res) => {
-    var Course = new Course({
-        name: req.body.fullname,
-        teacher: req.body.module,
-        coef: req.body.course,
+    var course = new Course({
+        name: req.body.name,
+        teacher: req.body.teacher,
+        coef: req.body.coef,
     });
-    Course.save((err, doc) => {
+    course.save((err, doc) => {
         if (!err) { res.send(doc); }
         else { console.log('Error in Course Save :' + JSON.stringify(err, undefined, 2)); }
     });
@@ -28,7 +28,32 @@ router.post('/', (req, res) => {
 
 router.get('/:name', (req, res) => {
 
-    Course.find
+    Course.findOne({name : req.params.name},(err, doc) => {
+        if (!err) { res.send(doc); }
+        else { console.log('There is no such a Course :' + JSON.stringify(err, undefined, 2)); }
+    });
 });
+
+
+
+router.put('/:name', (req, res) => {
+    var course = {
+        name: req.body.name,
+        teacher: req.body.teacher,
+        coef: req.body.coef
+    };
+    Course.updateOne({name: req.params.name}, course, (err, doc) => {
+        if (!err) { res.send(doc); }
+        else { console.log('There is no such a Course :' + JSON.stringify(err, undefined, 2)); }
+    });
+});
+
+
+router.delete('/:name',(req,res) => {
+    Course.remove({name : req.params.name},(err, doc) => {
+        if (!err) { res.send(doc); }
+        else { console.log('There is no such a Course :' + JSON.stringify(err, undefined, 2)); }
+    });
+})
 
 module.exports = router ;
