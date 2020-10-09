@@ -1,8 +1,15 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { EditComponent } from './edit/edit.component';
 
 
-const routes: Routes = [];
+const routes: Routes = [
+
+  {
+    path: "course/:id",
+    component: EditComponent
+  }
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
