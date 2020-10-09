@@ -3,9 +3,9 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { EditComponent } from './edit/edit.component';
-import { ShowComponent } from './show/show.component';
-import { CreateComponent } from './create/create.component';
+import { EditComponent } from './components/edit/edit.component';
+import { ShowComponent } from './components/show/show.component';
+import { CreateComponent } from './components/create/create.component';
 
 @NgModule({
   declarations: [
