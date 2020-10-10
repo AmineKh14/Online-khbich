@@ -14,6 +14,15 @@
 
 
 
+
+        <div class="form-group">
+          <label for="inputVerify3">Chapters</label>
+          <input class="form-control" type="text" formControlName="coef">
+          <!-- error -->
+          <div class="invalid-feedback d-block" *ngIf="submitted && myForm.coef.errors?.required">
+            Enter chapter numebers.
+          </div>
+        </div>
         <div class="form-group">
           <label for="inputPassword3">Teacher</label>
           <select class="custom-select form-control" (change)="updateProfile($event.target.value)"
@@ -28,18 +37,11 @@
           </div>
         </div>
 
-        <div class="form-group">
-          <label for="inputVerify3">Chapters</label>
-          <input class="form-control" type="text" formControlName="coef">
-          <!-- error -->
-          <div class="invalid-feedback d-block" *ngIf="submitted && myForm.coef.errors?.required">
-            Enter chapter numebers.
-          </div>
-        </div>
-
-        <div class="form-group">
+        <div class="form-group mt-5">
           <button class="btn btn-success btn-lg btn-block" type="submit">Add Course</button>
         </div>
+
+
       </form>
 
     </div>

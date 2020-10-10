@@ -26,19 +26,6 @@
             </div>
           </div>
 
-          <div class="form-group">
-            <label for="inputPassword3">Teacher</label>
-            <select class="custom-select form-control" (change)="updateProfile($event.target.value)"
-              formControlName="teacher">
-              <option value=""> Pick a Teacher</option>
-              <option *ngFor="let teacherss of Teacherss" value="{{teacherss}}">{{teacherss}}
-              </option>
-            </select>
-            <!-- error -->
-            <div class="invalid-feedback d-block" *ngIf="submitted && myForm.teacher.errors?.required">
-              Choose Teacher.
-            </div>
-          </div>
 
 
 
@@ -58,8 +45,24 @@
           </div>
 
           <div class="form-group">
+            <label for="inputPassword3">Teacher</label>
+            <select class="custom-select form-control" (change)="updateProfile($event.target.value)"
+              formControlName="teacher">
+              <option value=""> Pick a Teacher</option>
+              <option *ngFor="let teacherss of Teacherss" value="{{teacherss}}">{{teacherss}}
+              </option>
+            </select>
+            <!-- error -->
+            <div class="invalid-feedback d-block" *ngIf="submitted && myForm.teacher.errors?.required">
+              Choose Teacher.
+            </div>
+
+          <div class="form-group mt-5">
             <button class="btn btn-success btn-lg btn-block" type="submit">Update</button>
           </div>
+
+          </div>
+
         </form>
       </div>
     </div><!-- form  -->
