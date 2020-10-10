@@ -15,25 +15,25 @@
 
 
         <div class="form-group">
-          <label for="inputPassword3">Module</label>
+          <label for="inputPassword3">Teacher</label>
           <select class="custom-select form-control" (change)="updateProfile($event.target.value)"
-            formControlName="module">
+            formControlName="teacher">
             <option value="">Choose...</option>
             <option *ngFor="let courseProfile of CourseProfile" value="{{courseProfile}}">{{courseProfile}}
             </option>
           </select>
           <!-- error -->
-          <div class="invalid-feedback d-block" *ngIf="submitted && myForm.module.errors?.required">
-            Choose Module.
+          <div class="invalid-feedback d-block" *ngIf="submitted && myForm.teacher.errors?.required">
+            Choose Teacher.
           </div>
         </div>
 
         <div class="form-group">
-          <label for="inputVerify3">Description</label>
-          <input class="form-control" type="text" formControlName="description">
+          <label for="inputVerify3">Coef</label>
+          <input class="form-control" type="text" formControlName="coef">
           <!-- error -->
-          <div class="invalid-feedback d-block" *ngIf="submitted && myForm.description.errors?.required">
-            Enter Description.
+          <div class="invalid-feedback d-block" *ngIf="submitted && myForm.coef.errors?.required">
+            Enter Coef.
           </div>
         </div>
 
