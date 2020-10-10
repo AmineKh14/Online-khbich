@@ -11,7 +11,8 @@ import { LinkerService } from '../../linker.service'
 export class CreateComponent implements OnInit {
   submitted = false;
   courseForm: FormGroup;
-  CourseProfile:any = ['Web dev','intergiciel','Andriod','Base de donne']
+  Teacherss: any = ['Malki','Benchrif','Elouali','Kechar','Djamel']
+
 
   constructor(
     public fb: FormBuilder,
@@ -33,17 +34,18 @@ export class CreateComponent implements OnInit {
     })
   }
 
-  // Choose module with select dropdown
   updateProfile(e){
     this.courseForm.get('teacher').setValue(e, {
       onlySelf: true
     })
   }
 
-  // Getter to access form control
   get myForm(){
     return this.courseForm.controls;
   }
+
+
+
 
   onSubmit() {
     this.submitted = true;
@@ -52,7 +54,6 @@ export class CreateComponent implements OnInit {
     } else {
       this.apiService.createCourse(this.courseForm.value).subscribe(
         (res) => {
-          console.log('Course successfully created!')
           this.ngZone.run(() => this.router.navigateByUrl('/courses'))
         }, (error) => {
           console.log(error);

@@ -3,7 +3,17 @@
     <!-- form card register -->
     <div class="container mt-5">
 
-        <h3 class="mt-5 ">Edit Course</h3>
+        <h2 class="mt-5 ">Edit Course</h2>
+
+
+
+
+
+
+
+
+
+
 
       <div class="card-body">
         <form [formGroup]="editForm" (ngSubmit)="onSubmit()">
@@ -20,8 +30,8 @@
             <label for="inputPassword3">Teacher</label>
             <select class="custom-select form-control" (change)="updateProfile($event.target.value)"
               formControlName="teacher">
-              <option value="">Choose...</option>
-              <option *ngFor="let courseProfile of CourseProfile" value="{{courseProfile}}">{{courseProfile}}
+              <option value=""> Pick a Teacher</option>
+              <option *ngFor="let teacherss of Teacherss" value="{{teacherss}}">{{teacherss}}
               </option>
             </select>
             <!-- error -->
@@ -30,12 +40,20 @@
             </div>
           </div>
 
+
+
+
+
+
+
+
+
           <div class="form-group">
             <label for="inputVerify3">Coef</label>
             <input class="form-control" type="text" formControlName="coef">
             <!-- error -->
             <div class="invalid-feedback d-block" *ngIf="submitted && myForm.coef.errors?.required">
-              Enter Coef.
+              Chapter numbers
             </div>
           </div>
 

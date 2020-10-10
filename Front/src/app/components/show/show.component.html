@@ -1,11 +1,15 @@
 <div class="container">
 
+
+  <a routerLink="/new-course"><button class="btn btn-primary mt-5" > Add Course</button></a>
+
+
   <table class="table mt-5" *ngIf="Course.length > 0">
     <thead >
       <tr>
         <th scope="col">Name</th>
         <th scope="col">Teacher</th>
-        <th scope="col">Coef</th>
+        <th scope="col">Chapters</th>
         <th scope="col center">Update</th>
       </tr>
     </thead>

@@ -36,13 +36,13 @@ router.get('/:name', (req, res) => {
 
 
 
-router.put('/:name', (req, res) => {
+router.put('/edit/:id', (req, res) => {
     var course = {
         name: req.body.name,
         teacher: req.body.teacher,
         coef: req.body.coef
     };
-    Course.updateOne({name: req.params.name}, course, (err, doc) => {
+    Course.updateOne({_id: req.params.id}, course, (err, doc) => {
         if (!err) { res.send(doc); }
         else { console.log('There is no such a Course :' + JSON.stringify(err, undefined, 2)); }
     });

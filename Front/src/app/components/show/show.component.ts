@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { LinkerService} from '../../linker.service'
 
+
+
 @Component({
   selector: 'app-show',
   templateUrl: './show.component.html',
@@ -30,6 +32,8 @@ export class ShowComponent implements OnInit {
       )
     }
   }
+
+
 
 
 }

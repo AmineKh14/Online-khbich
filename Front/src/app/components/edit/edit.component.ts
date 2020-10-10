@@ -4,6 +4,9 @@ import { ActivatedRoute, Router } from "@angular/router";
 import { LinkerService } from '../../linker.service';
 import { FormGroup, FormBuilder, Validators } from "@angular/forms";
 
+
+
+
 @Component({
   selector: 'app-edit',
   templateUrl: './edit.component.html',
@@ -13,7 +16,7 @@ export class EditComponent implements OnInit {
   submitted = false;
   editForm: FormGroup;
   CourseData: Course[];
-  CourseProfile: any = ['Web dev','intergiciel','Andriod','Base de donne']
+  Teacherss: any = ['Malki','Benchrif','Elouali','Kechar','Djamel']
 
   constructor(
     public fb: FormBuilder,
@@ -21,6 +24,8 @@ export class EditComponent implements OnInit {
     private linker: LinkerService,
     private router: Router
   ) { }
+
+
 
 
   ngOnInit() {
@@ -34,17 +39,19 @@ export class EditComponent implements OnInit {
     })
   }
 
-  // Choose options with select-dropdown
+
+
   updateProfile(e) {
     this.editForm.get('teacher').setValue(e, {
       onlySelf: true
     })
   }
 
-  // Getter to access form control
   get myForm() {
     return this.editForm.controls;
   }
+
+
 
   getCourse(id) {
     this.linker.getCourse(id).subscribe(data => {
@@ -56,6 +63,8 @@ export class EditComponent implements OnInit {
     });
   }
 
+
+
   updateCourse() {
     this.editForm = this.fb.group({
       name: ['', [Validators.required]],
@@ -65,17 +74,18 @@ export class EditComponent implements OnInit {
     })
   }
 
+
+
   onSubmit() {
     this.submitted = true;
     if (!this.editForm.valid) {
       return false;
     } else {
-      if (window.confirm('Are you sure?')) {
+      if (window.confirm('this Course will be edited')) {
         let id = this.actRoute.snapshot.paramMap.get('id');
         this.linker.updateCourse(id, this.editForm.value)
           .subscribe(res => {
             this.router.navigateByUrl('/courses');
-            console.log('Content updated successfully!')
           }, (error) => {
             console.log(error)
           })

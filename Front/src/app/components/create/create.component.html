@@ -18,8 +18,8 @@
           <label for="inputPassword3">Teacher</label>
           <select class="custom-select form-control" (change)="updateProfile($event.target.value)"
             formControlName="teacher">
-            <option value="">Choose...</option>
-            <option *ngFor="let courseProfile of CourseProfile" value="{{courseProfile}}">{{courseProfile}}
+            <option value="">Pick a teacher</option>
+            <option *ngFor="let teacherss of Teacherss" value="{{teacherss}}">{{teacherss}}
             </option>
           </select>
           <!-- error -->
@@ -29,11 +29,11 @@
         </div>
 
         <div class="form-group">
-          <label for="inputVerify3">Coef</label>
+          <label for="inputVerify3">Chapters</label>
           <input class="form-control" type="text" formControlName="coef">
           <!-- error -->
           <div class="invalid-feedback d-block" *ngIf="submitted && myForm.coef.errors?.required">
-            Enter Coef.
+            Enter chapter numebers.
           </div>
         </div>
 

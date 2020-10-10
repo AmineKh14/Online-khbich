@@ -3,10 +3,14 @@ import { Observable, throwError } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
 import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
 
+
+
+
 @Injectable({
   providedIn: 'root'
 })
 export class LinkerService {
+
 
 
   Uri:string = 'http://localhost:3000/courses';
@@ -38,7 +42,7 @@ export class LinkerService {
   }
 
   updateCourse(id, data): Observable<any> {
-    let url = `${this.Uri}/${id}`;
+    let url = `${this.Uri}/edit/${id}`;
     return this.http.put(url, data, { headers: this.headers }).pipe(
       catchError(this.errorMgmt)
     )
@@ -50,6 +54,8 @@ export class LinkerService {
       catchError(this.errorMgmt)
     )
   }
+
+
 
   errorMgmt(error: HttpErrorResponse) {
     let errorMessage = '';
