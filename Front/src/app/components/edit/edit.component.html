@@ -1,28 +1,49 @@
+<div class="row justify-content-center">
+  <div class="col-md-4 register-course">
+    <!-- form card register -->
+    <div class="container mt-5">
 
+        <h3 class="mt-5 ">Edit Course</h3>
 
-<h1> Add a Course </h1>
+      <div class="card-body">
+        <form [formGroup]="editForm" (ngSubmit)="onSubmit()">
 
-<form action="">
+          <div class="form-group">
+            <label for="inputName">Name</label>
+            <input class="form-control" type="text" formControlName="name">
+            <div class="invalid-feedback d-block" *ngIf="submitted && myForm.name.errors?.required">
+              Name is required.
+            </div>
+          </div>
 
-  <div class="form-group">
-    <label for="">Id</label>
-    <input type="text" class="form-control">
+          <div class="form-group">
+            <label for="inputPassword3">Teacher</label>
+            <select class="custom-select form-control" (change)="updateProfile($event.target.value)"
+              formControlName="teacher">
+              <option value="">Choose...</option>
+              <option *ngFor="let courseProfile of CourseProfile" value="{{courseProfile}}">{{courseProfile}}
+              </option>
+            </select>
+            <!-- error -->
+            <div class="invalid-feedback d-block" *ngIf="submitted && myForm.teacher.errors?.required">
+              Choose Teacher.
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="inputVerify3">Coef</label>
+            <input class="form-control" type="text" formControlName="coef">
+            <!-- error -->
+            <div class="invalid-feedback d-block" *ngIf="submitted && myForm.coef.errors?.required">
+              Enter Coef.
+            </div>
+          </div>
+
+          <div class="form-group">
+            <button class="btn btn-success btn-lg btn-block" type="submit">Update</button>
+          </div>
+        </form>
+      </div>
+    </div><!-- form  -->
   </div>
-
-  <div class="form-group">
-    <label for="">Name</label>
-    <input type="text" class="form-control">
-  </div>
-
-  <div class="form-group">
-    <label for="">Teacher</label>
-    <input type="text" class="form-control">
-  </div>
-
-  <div class="form-group">
-    <label for="">Coef</label>
-    <input type="text" class="form-control">
-  </div>
-
-
-</form>
+</div>

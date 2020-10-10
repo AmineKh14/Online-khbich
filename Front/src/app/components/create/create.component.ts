@@ -28,14 +28,14 @@ export class CreateComponent implements OnInit {
   mainForm() {
     this.courseForm = this.fb.group({
       name: ['', [Validators.required]],
-      module: ['', [Validators.required]],
-      description: ['', [Validators.required]],
+      teacher: ['', [Validators.required]],
+      coef: ['', [Validators.required]],
     })
   }
 
   // Choose module with select dropdown
   updateProfile(e){
-    this.courseForm.get('module').setValue(e, {
+    this.courseForm.get('teacher').setValue(e, {
       onlySelf: true
     })
   }

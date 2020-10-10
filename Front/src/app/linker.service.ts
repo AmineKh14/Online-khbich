@@ -16,7 +16,7 @@ export class LinkerService {
   constructor(private http: HttpClient) { }
 
   createCourse(data): Observable<any> {
-    let url = `${this.Uri}/create`;
+    let url = `${this.Uri}`;
     return this.http.post(url, data)
       .pipe(
         catchError(this.errorMgmt)
@@ -28,7 +28,7 @@ export class LinkerService {
   }
 
   getCourse(id): Observable<any> {
-    let url = `${this.Uri}/read/${id}`;
+    let url = `${this.Uri}/${id}`;
     return this.http.get(url, {headers: this.headers}).pipe(
       map((res: Response) => {
         return res || {}
@@ -38,14 +38,14 @@ export class LinkerService {
   }
 
   updateCourse(id, data): Observable<any> {
-    let url = `${this.Uri}/update/${id}`;
+    let url = `${this.Uri}/${id}`;
     return this.http.put(url, data, { headers: this.headers }).pipe(
       catchError(this.errorMgmt)
     )
   }
 
   deleteCourse(id): Observable<any> {
-    let url = `${this.Uri}/delete/${id}`;
+    let url = `${this.Uri}/${id}`;
     return this.http.delete(url, { headers: this.headers }).pipe(
       catchError(this.errorMgmt)
     )

@@ -1,1 +1,28 @@
-<p>show works!</p>
+<div class="container">
+
+  <table class="table mt-5" *ngIf="Course.length > 0">
+    <thead >
+      <tr>
+        <th scope="col">Name</th>
+        <th scope="col">Teacher</th>
+        <th scope="col">Coef</th>
+        <th scope="col center">Update</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let course of Course; let i = index">
+        <td>{{course.name}}</td>
+        <td>{{course.teacher}}</td>
+        <td>{{course.coef}}</td>
+        <td class="text-center edit-block">
+          <span class="edit" [routerLink]="['/course/', course._id]">
+            <button type="button" class="btn btn-link mr-2 ">Edit</button>
+          </span>
+          <span class="delete" (click)="removeCourse(course, i)">
+            <button type="button" class="btn btn-danger ">Delete</button>
+          </span>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
