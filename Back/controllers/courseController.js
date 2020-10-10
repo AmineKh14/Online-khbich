@@ -13,7 +13,7 @@ router.get('/', (req, res) => {
 });
 
 
-router.post('/create', (req, res) => {
+router.post('/', (req, res) => {
     var course = new Course({
         name: req.body.name,
         teacher: req.body.teacher,
@@ -26,7 +26,7 @@ router.post('/create', (req, res) => {
 });
 
 
-router.get('read/:name', (req, res) => {
+router.get('/:name', (req, res) => {
 
     Course.findOne({name : req.params.name},(err, doc) => {
         if (!err) { res.send(doc); }
@@ -36,7 +36,7 @@ router.get('read/:name', (req, res) => {
 
 
 
-router.put('update/:name', (req, res) => {
+router.put('/:name', (req, res) => {
     var course = {
         name: req.body.name,
         teacher: req.body.teacher,
@@ -49,7 +49,7 @@ router.put('update/:name', (req, res) => {
 });
 
 
-router.delete('delete/:name',(req,res) => {
+router.delete('/:name',(req,res) => {
     Course.remove({name : req.params.name},(err, doc) => {
         if (!err) { res.send(doc); }
         else { console.log('There is no such a Course :' + JSON.stringify(err, undefined, 2)); }
